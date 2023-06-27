@@ -9,16 +9,20 @@ window.addEventListener('mousemove', (e) => {
   y = e.pageY;
 
   h1.innerText = `x : ${e.pageX} y : ${e.pageY}`;
+
+  $box.style.top = `${y}px`;
+  $box.style.left = `${x}px`;
 });
 
-const loop = () => {
-  targetX += (x - targetX) * SPEED;
-  targetY += (y - targetY) * SPEED;
+// const loop = () => {
+//   // 가속과 감속
+//   targetX += (x - targetX) * SPEED;
+//   targetY += (y - targetY) * SPEED;
 
-  $box.style.top = `${targetY}px`;
-  $box.style.left = `${targetX}px`;
+//   $box.style.top = `${targetY.toFixed(2)}px`;
+//   $box.style.left = `${targetX.toFixed(2)}px`;
 
-  window.requestAnimationFrame(loop);
-};
+//   window.requestAnimationFrame(loop);
+// };
 
-loop();
+// loop();
