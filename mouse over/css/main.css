@@ -18,13 +18,13 @@ a {
   position: fixed;
   width: 120px;
   height: 120px;
-  background-color: #fff;
+  background-color: #ffffff50;
   border-radius: 100%;
   margin: -60px -60px;
 }
 
 .container {
-  width: 400px;
+  width: 500px;
   position: absolute;
   top: 50%;
   left: 50%;
