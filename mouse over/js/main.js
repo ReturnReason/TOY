@@ -17,5 +17,18 @@ window.onload = () => {
     y = e.pageY;
   });
 
+  const $circle = $cursor.querySelector('.circle');
+  const $buttons = document.querySelectorAll('.btn');
+
+  $buttons.forEach((btn) => {
+    btn.addEventListener('mouseenter', () => {
+      $circle.style.transform = `scale(0.3)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      $circle.style.transform = `scale(1)`;
+    });
+  });
+
   loop();
 };
