@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  width: 100vw;
+  min-width: 500px;
+  height: 100vh;
+  min-height: 1000px;
+  background: url(../img/blue-bg.png) center center / cover no-repeat;
+  filter: blur(0.6px);
+  z-index: -1;
+}
+
+.iu-wrapper {
+  min-width: 500px;
+  max-width: 1200px;
+  height: 100%;
+  padding: 80px;
+  position: relative;
+  margin: 0 auto;
+  filter: none;
+  overflow: hidden;
+}
+
+#iu {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  padding-top: 1px;
+  margin-top: 10px;
+  position: absolute;
+  left: 50%;
+  z-index: 999999;
+  bottom: -20px;
+  transform: translate(-50%, 0);
+  filter: brightness(110%) grayscale(0.1);
+}
+
+.iu-shadow {
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  bottom: -20px;
+  transform: translate(-50%, 0) scale(1.1);
+  filter: blur(20px) brightness(1000%);
+}
+
+.iu-logo {
+  width: 500px;
+  position: absolute;
+  bottom: 200px;
+  right: 20px;
+  z-index: 1000000000;
+}
+
+.iu-logo:first-child {
+  width: 100px;
+  top: 120px;
+  left: 100px;
+}
+
+.lilac-logos {
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lilac-logos::after {
+  content: '';
+  width: 100%;
+  height: 100vh;
+  top: -80px;
+  left: 0;
+  position: absolute;
+  background-color: #eeeeee30;
+}
+
+.lilac-logo {
+  width: 100%;
+  opacity: 1;
+  z-index: 9999999;
+  position: absolute;
+  left: 0;
+  top: 300px;
+
+  opacity: 0.6;
+  transform: scale(1.3);
+  filter: blur(10px);
+  top: 0px;
+  z-index: 0;
+}
+
+.lilac-logo:last-child {
+  opacity: 0.6;
+  transform: scale(1.3);
+  filter: blur(0px);
+  top: 400px;
+  z-index: 0;
+}
+
+.last {
+  background-color: #8ab6f2;
+  width: 250px;
+  bottom: -30px;
+  left: 30px;
+  position: sticky;
+  z-index: 9999999;
+}
+
+#iu-tr {
+  width: 400px;
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  z-index: 1;
+  opacity: 0.9;
+  filter: brightness(110%) grayscale(0.1);
+}
+
+#iu-tr2 {
+  width: 400px;
+  position: absolute;
+  top: 150px;
+  right: 100px;
+  z-index: 1;
+  filter: brightness(120%) grayscale(0.1);
+  opacity: 0.8;
+}
