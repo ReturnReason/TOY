@@ -4,16 +4,48 @@
 }
 
 body {
-  background: linear-gradient(150deg, #daccff, #798fdf, #6762c3);
+  background: linear-gradient(150deg, #daccff, #798fdf, #6762c3, #373478, #151435);
+  overflow-x: hidden;
+}
+
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #313131;
+}
+
+.progress-bar {
+  width: 0%;
+  height: inherit;
+  background-color: #d3c9ff;
+  transition: width 0.5s;
 }
 
 .title {
   position: fixed;
   padding: 1rem;
-  font-size: 2rem;
+  font-size: 3rem;
+  color: #fff;
+  padding-left: 40px;
+  padding-bottom: 30px;
+  bottom: 0;
+}
+
+.start {
+  text-align: center;
+  font-size: 4rem;
+  color: #fff;
+  padding-top: 4rem;
 }
 
 .innerWrap {
   width: 100%;
-  height: 500vh;
+  height: 10000px;
+}
+
+.text-container {
+  padding: 500px 20px;
 }
