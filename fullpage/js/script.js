@@ -3,4 +3,5 @@ new fullpage('#fullpage', {
   scrollHorizontally: true,
   navigation: true,
   slidesNavigation: true,
+  anchors: ['Num0', 'Num1', 'Num2', 'Num3'],
 });
