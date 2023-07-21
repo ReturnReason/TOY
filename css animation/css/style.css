@@ -7,21 +7,27 @@
   width: 100px;
   height: 100px;
   border-radius: 100px;
-  background: rgb(186, 211, 233);
   margin: auto;
-  animation: moveAndScaleUp 2s;
+  background: rgb(48, 157, 252);
+  animation: moveAndScaleUp 2s 1s 4 alternate both linear;
+}
+
+.ball:hover {
+  animation-play-state: paused;
 }
 
 @keyframes moveAndScaleUp {
   0% {
     transform: translateX(0) scale(1);
+    background-color: rgb(186, 211, 233);
   }
 
-  45% {
+  /* 45% {
     transform: translateX(-100px) scale(0.5);
-  }
+  } */
 
   100% {
     transform: translateX(200px) scale(1.5);
+    background-color: rgb(186, 211, 233);
   }
 }

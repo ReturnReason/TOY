@@ -9,4 +9,23 @@
   <body>
     <div class="ball"></div>
   </body>
+  <script>
+    const $ball = document.querySelector('.ball');
+
+    $ball.addEventListener('animationstart', () => {
+      console.log('애니메이션 시작');
+    });
+
+    $ball.addEventListener('animationend', () => {
+      console.log('애니메이션 끝');
+    });
+
+    $ball.addEventListener('animationcancle', () => {
+      console.log('애니메이션 취소');
+    });
+
+    $ball.addEventListener('animationiteration', () => {
+      console.log('애니메이션 반복 실행');
+    });
+  </script>
 </html>
