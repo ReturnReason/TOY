@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation Control</title>
+    <style>
+      .box {
+        background-color: aliceblue;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="animation-player">
+      <div class="player-display">0</div>
+
+      <div class="player-buttons">
+        <button class="btn" data-fc="play">
+          <span class="btn-label">PLAY</span>
+        </button>
+
+        <button class="btn" data-fc="pause">
+          <span class="btn-label">PAUSE</span>
+        </button>
+
+        <button class="btn" data-fc="fast">
+          <span class="btn-label">X2</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const $box = document.querySelector('.box');
+
+      const keyframes = [
+        {
+          transform: `translateX(0)`,
+        },
+        {
+          transform: `translateX(200%)`,
+        },
+      ];
+
+      const options = {
+        duration: 1000,
+        iterations: Infinity,
+        direction: 'alternate',
+      };
+
+      const $playerBtns = document.querySelector('.player-buttons');
+      $playerBtns.addEventListener('click', ({ target }) => {
+        const $btn = target.closest('.btn');
+
+        handlePlayer($btn.dataset.fc);
+      });
+
+      $box.animate(keyframes, options);
+
+      function handlePlayer(dataset) {
+        switch (dataset) {
+          case 'play':
+            $btn;
+            break;
+          case 'pause':
+            console.log('pause');
+            break;
+          case 'fast':
+            console.log('fast');
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
