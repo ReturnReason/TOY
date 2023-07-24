@@ -34,7 +34,7 @@
     </div>
 
     <script>
-      const $box = document.querySelector('.box');
+      const $box = document.querySelector(".box");
 
       const keyframes = [
         {
@@ -48,28 +48,28 @@
       const options = {
         duration: 1000,
         iterations: Infinity,
-        direction: 'alternate',
+        direction: "alternate",
       };
 
-      const $playerBtns = document.querySelector('.player-buttons');
-      $playerBtns.addEventListener('click', ({ target }) => {
-        const $btn = target.closest('.btn');
+      const $playerBtns = document.querySelector(".player-buttons");
+      $playerBtns.addEventListener("click", ({ target }) => {
+        const $btn = target.closest(".btn");
 
         handlePlayer($btn.dataset.fc);
       });
 
-      $box.animate(keyframes, options);
+      const boxAnimation = $box.animate(keyframes, options);
 
       function handlePlayer(dataset) {
         switch (dataset) {
-          case 'play':
-            $btn;
+          case "play":
+            boxAnimation.play();
             break;
-          case 'pause':
-            console.log('pause');
+          case "pause":
+            boxAnimation.pause();
             break;
-          case 'fast':
-            console.log('fast');
+          case "fast":
+            boxAnimation.playbackRate = 2;
             break;
         }
       }
