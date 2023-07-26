@@ -26,5 +26,6 @@ export async function getStaticProps() {
 
   return {
     props: { data },
+    //revaildate: 5, // 같은 값 일경우 revalidate 설정되어 있어도 data가 변하지 않으면 prelender 수행안함.
   };
 }
