@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { commitData } from "./datas/commitData";
+// import { commitData } from "./datas/commitData";
 
 import "./App.css";
+import CommitMessage from "./components/CommitMessage";
 
 type TargetType = {
   target: { value: string };
@@ -40,18 +41,7 @@ function App() {
         id="commitFilterInput"
         onChange={changeCommitPrefix}
       />
-      <ul>
-        {commits &&
-          commits
-            .filter(({ commit: { message } }) => {
-              const match =
-                commitPrefix && RegExp(`^${commitPrefix}.+`).test(message);
-              return match;
-            })
-            .map(({ commit: { message }, idx }) => (
-              <li key={`${message} ${idx}`}>{message}</li>
-            ))}
-      </ul>
+      <CommitMessage {...{ commits, commitPrefix }} />
     </>
   );
 }
