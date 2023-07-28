@@ -17,14 +17,23 @@ function App() {
   };
 
   // 외부에 있는 값을 비동기적으로 가져올 때는 useEffect를 사용
-  // (서버에서 가져온다고 가정하자.)
   useEffect(() => {
-    setCommits(commitData as []);
+    (async function getData() {
+      try {
+        const res = await fetch(
+          `https://api.github.com/repos/ReturnReason/TOY/commits`
+        );
+        const data = await res.json();
+        setCommits(data);
+      } catch (err) {
+        console.error(err);
+      }
+    })();
   }, []);
 
   return (
     <>
-      <h1>Hello commit filter</h1>
+      <h1>Commit filter</h1>
       <input
         type="text"
         name="commitFilterInput"
@@ -40,7 +49,7 @@ function App() {
               return match;
             })
             .map(({ commit: { message }, idx }) => (
-              <li key={idx}>{message}</li>
+              <li key={`${message} ${idx}`}>{message}</li>
             ))}
       </ul>
     </>
