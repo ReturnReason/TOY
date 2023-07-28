@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+
+import { commitData } from "./datas/commitData";
+
+import "./App.css";
+
+type TargetType = {
+  target: { value: string };
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [commitPrefix, setCommitPrefix] = useState<string>("");
+  const [commits, setCommits] = useState<null | []>(null);
+
+  const changeCommitPrefix = ({ target: { value } }: TargetType) => {
+    setCommitPrefix(value);
+  };
+
+  // 외부에 있는 값을 비동기적으로 가져올 때는 useEffect를 사용
+  // (서버에서 가져온다고 가정하자.)
+  useEffect(() => {
+    setCommits(commitData as []);
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Hello commit filter</h1>
+      <input
+        type="text"
+        name="commitFilterInput"
+        id="commitFilterInput"
+        onChange={changeCommitPrefix}
+      />
+      <ul>
+        {commits &&
+          commits
+            .filter(({ commit: { message } }) => {
+              const match =
+                commitPrefix && RegExp(`^${commitPrefix}.+`).test(message);
+              return match;
+            })
+            .map(({ commit: { message }, idx }) => (
+              <li key={idx}>{message}</li>
+            ))}
+      </ul>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
