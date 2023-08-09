@@ -9,3 +9,14 @@
 .nav a {
   padding: 0 8px;
 }
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu li {
+  list-style: none;
+}

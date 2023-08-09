@@ -9,7 +9,7 @@ interface Props {
 export default function ProductPage({ params }: Props) {
   console.log(params);
 
-  return <div>{params.slug}ProductPage</div>;
+  return <div>{params.slug} Product Page</div>;
 }
 
 // 다이나믹 라우트 사용하는 페이지에서 어떤 페이지를 미리 만들지 명시
