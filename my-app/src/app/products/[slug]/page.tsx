@@ -6,6 +6,12 @@ interface Props {
   };
 }
 
+export function generateMetadata({ params }: Props) {
+  return {
+    title: `PRODUCT | ${params.slug}`,
+  };
+}
+
 export default function ProductPage({ params }: Props) {
   console.log(params);
 
