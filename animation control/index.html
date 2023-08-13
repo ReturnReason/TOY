@@ -35,6 +35,7 @@
 
     <script>
       const $box = document.querySelector(".box");
+      const $display = document.querySelector(".player-display");
 
       const keyframes = [
         {
@@ -72,6 +73,8 @@
             boxAnimation.playbackRate = 2;
             break;
         }
+
+        $display.innerHTML = boxAnimation.playState;
       }
     </script>
   </body>
