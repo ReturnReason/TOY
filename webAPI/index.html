@@ -16,31 +16,42 @@
   <body>
     <div class="box"></div>
     <script>
-      const $box = document.querySelector('.box');
+      const $box = document.querySelector(".box");
       const keyframes = [
         {
-          transform: 'translateX(0)',
+          transform: "translateX(0)",
           opacity: 0,
         },
         {
-          transform: 'translateX(-50px)',
+          transform: "translateX(-50px)",
           opacity: 1,
           offset: 0.7,
         },
         {
-          transform: 'translateX(200px)',
+          transform: "translateX(200px)",
           opacity: 0.5,
         },
       ];
       const options = {
         duration: 2000,
-        easing: 'linear',
-        fill: 'forwards',
-        iterations: Infinity,
-        direction: 'alternate',
+        easing: "linear",
+        fill: "forwards",
+        // iterations: Infinity,
+        direction: "alternate",
       };
 
-      $box.animate(keyframes, options);
+      const animation = $box.animate(keyframes, options);
+
+      console.log(animation.finished); // Promise
+      animation.finished.then((data) => {
+        console.log(data);
+        console.log(animation === data); // true
+        console.log("애니메이션 종료");
+      });
+
+      animation.ready.then(() => {
+        console.log("애니메이션 시작");
+      });
     </script>
   </body>
 </html>
