@@ -8,21 +8,28 @@ interface Props {
   };
 }
 
+// ssg를 isr로 렌더링
+export const revalidate = 3;
+
 export function generateMetadata({ params }: Props) {
   return {
     title: `PRODUCT | ${params.slug}`,
   };
 }
 
-export default function ProductPage({ params: { slug } }: Props) {
-  const product = getProduct(slug);
+export default async function ProductPage({ params: { slug } }: Props) {
+  const product = await getProduct(slug);
   // 서버 파일 데이터 중 해당 정보 찾아서 보여주기
 
   if (!product) {
     notFound();
   }
 
-  return <div>{product} Product Page</div>;
+  return (
+    <div>
+      <h2>{product.name} Product Page</h2>
+    </div>
+  );
 }
 
 // 다이나믹 라우트 사용하는 페이지에서 어떤 페이지를 미리 만들지 명시
