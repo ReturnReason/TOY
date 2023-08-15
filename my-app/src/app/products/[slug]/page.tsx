@@ -32,6 +32,6 @@ export async function generateStaticParams() {
 
   // prams에 들어갈 Props 형태로 객체 만들어주면 됨.
   return products.map((product) => ({
-    slug: product,
+    slug: product.id,
   }));
 }
