@@ -16,7 +16,9 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 // 특정 경로로 갔을 때 슬러그(제품 id)를 전달해주면 변환
-export function getProduct(id: string) {
+export async function getProduct(id: string): Promise<Product | undefined> {
+  const products = await getProducts();
+
   // 제품의 객체를 리턴
-  return "shirt";
+  return products.find((product) => product.id === id);
 }
