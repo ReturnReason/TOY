@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./MeowArticle.module.css";
 
 export default function MeowArticle() {
-  const [text, setText] = useState();
+  const [text, setText] = useState("loading..");
 
   useEffect(() => {
     /** 고양이에 대한 사실 API를 CSR로 렌더링*/
