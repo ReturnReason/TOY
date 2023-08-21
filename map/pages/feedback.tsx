@@ -1,3 +1,4 @@
+import MapSection from '@/components/home/MapSection';
 import Header from '@/components/layout/Header';
 import styles from '@/styles/header.module.scss';
 import Link from 'next/link';
@@ -27,6 +28,9 @@ const HeaderRight = () => {
       <Link href="/feedback" className={styles.box} key="link">
         <VscFeedback size={ICON_SIZE} />
       </Link>
+      <main>
+        <MapSection></MapSection>
+      </main>
     </>
   );
 };

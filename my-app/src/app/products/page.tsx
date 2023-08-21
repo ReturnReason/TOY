@@ -6,6 +6,8 @@ import MeowArticle from "@/components/MeowArticle";
 // export const revalidate = 3;
 
 export default async function Products() {
+  throw new Error(); // 에러 페이지용 강제 에러
+
   const products = await getProducts();
 
   /** 고양이에 대한 사실 API */
