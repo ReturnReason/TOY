@@ -7,17 +7,19 @@ const TEMP_IMG_URL =
 export default function Home() {
   return (
     <main>
-      <Card
-        title={"게시글 타이틀"}
-        desc={"게시글 내용"}
-        image={{
-          src: TEMP_IMG_URL,
-          alt: "아이유",
-          width: 500,
-          height: 500,
-          placeholder: "empty",
-        }}
-      />
+      <div className="m-4">
+        <Card
+          title={"게시글 타이틀"}
+          desc={"게시글 내용"}
+          image={{
+            src: TEMP_IMG_URL,
+            alt: "아이유",
+            width: 500,
+            height: 500,
+            placeholder: "empty",
+          }}
+        />
+      </div>
     </main>
   );
 }

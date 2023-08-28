@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import styles from "./card.module.css";
 
 import type { ImageProps } from "next/image";
 
@@ -25,8 +26,9 @@ export default function Card({
   },
 }: Props) {
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center w-[400px] border-[1px] overflow-hidden rounded-md shadow-md">
       <Image
+        className="object-cover w-full max-h-[300px] object-center"
         src={src}
         alt={alt}
         width={width}
@@ -36,8 +38,14 @@ export default function Card({
         quality={quality}
         priority={priority}
       />
-      <h2>{title}</h2>
-      <p>{desc}</p>
+      <div className="p-4 text-center w-full">
+        <p className="text-right w-full">date</p>
+        <h2 className="text-lg">{title}</h2>
+        <p className="text-md">{desc}</p>
+        <div>
+          <p className="bg-slate-300 w-[50px] rounded-sm mt-4">태그</p>
+        </div>
+      </div>
     </div>
   );
 }
