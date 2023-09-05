@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./card.module.css";
 
 import type { ImageProps } from "next/image";
+import Tag from "./Tag";
 
 type Props = {
   title: string;
@@ -42,9 +43,7 @@ export default function Card({
         <p className="text-right w-full">date</p>
         <h2 className="text-lg">{title}</h2>
         <p className="text-md">{desc}</p>
-        <div>
-          <p className="bg-slate-300 w-[50px] rounded-sm mt-4">태그</p>
-        </div>
+        <Tag />
       </div>
     </div>
   );
