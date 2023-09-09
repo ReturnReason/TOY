@@ -27,7 +27,7 @@ export default function Card({
   },
 }: Props) {
   return (
-    <div className="flex flex-col justify-center items-center w-[400px] border-[1px] overflow-hidden rounded-md shadow-md">
+    <div className="flex flex-col justify-center items-center w-[100%] border-[1px] overflow-hidden rounded-md shadow-md">
       <Image
         className="object-cover w-full max-h-[300px] object-center"
         src={src}
