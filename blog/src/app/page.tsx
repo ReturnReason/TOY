@@ -6,8 +6,8 @@ const TEMP_IMG_URL =
 
 export default function Home() {
   return (
-    <main>
-      <div className="m-4">
+    <main className="mt-6 overflow-hidden">
+      <div>
         <CarouselSlide></CarouselSlide>
       </div>
     </main>

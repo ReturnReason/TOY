@@ -14,12 +14,12 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 3,
     slidesToSlide: 1,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 3,
     slidesToSlide: 1,
   },
 };
@@ -34,55 +34,29 @@ export default function CarouselSlide() {
       infinite={true}
       keyBoardControl={true}
       transitionDuration={500}
-      containerClass="carousel-container"
-      removeArrowOnDeviceType={["tablet", "mobile"]}
+      containerClass="carousel-container max-w-[1200px] m-auto"
       dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
+      sliderClass="gap-4"
+      itemClass="carousel-item-padding-40-px "
     >
-      <Card
-        title={"게시글 타이틀1"}
-        desc={"게시글 내용"}
-        image={{
-          src: TEMP_IMG_URL,
-          alt: "아이유",
-          width: 500,
-          height: 500,
-          placeholder: "empty",
-        }}
-      />
-      <Card
-        title={"게시글 타이틀2"}
-        desc={"게시글 내용"}
-        image={{
-          src: TEMP_IMG_URL,
-          alt: "아이유",
-          width: 500,
-          height: 500,
-          placeholder: "empty",
-        }}
-      />
-      <Card
-        title={"게시글 타이틀3"}
-        desc={"게시글 내용"}
-        image={{
-          src: TEMP_IMG_URL,
-          alt: "아이유",
-          width: 500,
-          height: 500,
-          placeholder: "empty",
-        }}
-      />
-      <Card
-        title={"게시글 타이틀4"}
-        desc={"게시글 내용"}
-        image={{
-          src: TEMP_IMG_URL,
-          alt: "아이유",
-          width: 500,
-          height: 500,
-          placeholder: "empty",
-        }}
-      />
+      {Array(10)
+        .fill(0)
+        .map((_, idx) => {
+          return (
+            <Card
+              key={idx}
+              title={"게시글 타이틀1"}
+              desc={"게시글 내용"}
+              image={{
+                src: TEMP_IMG_URL,
+                alt: "아이유",
+                width: 500,
+                height: 500,
+                placeholder: "empty",
+              }}
+            />
+          );
+        })}
     </Carousel>
   );
 }
