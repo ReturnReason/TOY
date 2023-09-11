@@ -27,6 +27,7 @@ const responsive = {
 export default function CarouselSlide() {
   return (
     <Carousel
+      autoPlay={true}
       swipeable={false}
       draggable={false}
       responsive={responsive}
