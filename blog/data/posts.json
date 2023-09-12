@@ -1,0 +1,28 @@
+[
+  {
+    "title": "제목",
+    "content": "게시글 GET 테스트용",
+    "date": "2023-09-12",
+    "cetegory": "none",
+    "path": "none",
+    "featured": false
+  },
+
+  {
+    "title": "제목2",
+    "content": "게시글 GET 테스트용22",
+    "date": "2023-09-12",
+    "cetegory": "none",
+    "path": "none",
+    "featured": false
+  },
+
+  {
+    "title": "제목33",
+    "content": "게시글 GET 테스트용33",
+    "date": "2023-09-12",
+    "cetegory": "none",
+    "path": "none",
+    "featured": false
+  }
+]
