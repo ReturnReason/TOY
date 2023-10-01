@@ -10,7 +10,11 @@ export type Post = {
 };
 
 export async function getPost(): Promise<Post[]> {
-  const postPath = path.join(process.cwd(), "data", "posts.json");
-
-  return readFile(postPath, "utf-8").then(JSON.parse);
+  try {
+    const postPath = path.join(process.cwd(), "data", "posts.json");
+    return readFile(postPath, "utf-8").then(JSON.parse);
+  } catch (err) {
+    console.error(err);
+    throw new Error("getPost Error");
+  }
 }
