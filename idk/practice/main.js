@@ -1,29 +1,48 @@
 import * as THREE from 'three';
+import WebGL from 'three/addons/capabilities/WebGL.js';
 
-const width = window.innerWidth,
-  height = window.innerHeight;
+if (WebGL.isWebGLAvailable()) {
+  // 씬
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color('#eee');
 
-const camera = new THREE.PerspectiveCamera(70, width / height, 0.01, 10);
-camera.position.z = 1;
+  // 카메라
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1_000
+  ); // 화각, 종횡비, 가까움, 먼
+  camera.position.z = 2;
 
-const scene = new THREE.Scene();
+  // 렌더러
+  const $canvas = document.querySelector('#canvas');
+  const renderer = new THREE.WebGLRenderer({ canvas: $canvas });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  // document.body.appendChild(renderer.domElement);
 
-const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
-const material = new THREE.MeshNormalMaterial();
+  // 매쉬
+  const geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+  const material = new THREE.MeshStandardMaterial({
+    color: 0x999999,
+  });
+  const cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
 
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
+  function render(time) {
+    const newTime = time * 0.001;
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(width, height);
-renderer.setAnimationLoop(animation);
-document.body.appendChild(renderer.domElement);
+    cube.rotation.y = newTime;
+    cube.rotation.x = newTime;
 
-// animation
+    renderer.render(scene, camera);
 
-function animation(time) {
-  mesh.rotation.x = time / 2000;
-  mesh.rotation.y = time / 1000;
+    requestAnimationFrame(render);
+  }
 
-  renderer.render(scene, camera);
+  requestAnimationFrame(render);
+  // renderer.render(scene, camera);
+} else {
+  const warning = WebGL.getWebGLErrorMessage();
+  document.getElementById('container').appendChild(warning);
 }
