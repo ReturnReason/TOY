@@ -22,12 +22,20 @@ if (WebGL.isWebGLAvailable()) {
   // document.body.appendChild(renderer.domElement);
 
   // 매쉬
-  const geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-  const material = new THREE.MeshStandardMaterial({
+  const geometry01 = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+  const material01 = new THREE.MeshStandardMaterial({
     color: 0x999999,
   });
-  const cube = new THREE.Mesh(geometry, material);
+  const cube = new THREE.Mesh(geometry01, material01);
+  cube.position.x = -1;
   scene.add(cube);
+
+  const cube2 = new THREE.Mesh(geometry01, material01);
+  scene.add(cube2);
+
+  const cube3 = new THREE.Mesh(geometry01, material01);
+  cube3.position.x = 1;
+  scene.add(cube3);
 
   function render(time) {
     const newTime = time * 0.001;
