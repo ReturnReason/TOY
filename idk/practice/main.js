@@ -30,8 +30,9 @@ if (WebGL.isWebGLAvailable()) {
   cube.position.x = -1;
   scene.add(cube);
 
-  const cube2 = new THREE.Mesh(geometry01, material01);
-  scene.add(cube2);
+  const geometry02 = new THREE.ConeGeometry(0.4, 0.6, 6);
+  const cone = new THREE.Mesh(geometry02, material01);
+  scene.add(cone);
 
   const cube3 = new THREE.Mesh(geometry01, material01);
   cube3.position.x = 1;
