@@ -38,11 +38,17 @@ if (WebGL.isWebGLAvailable()) {
   cube3.position.x = 1;
   scene.add(cube3);
 
+  const geometry03 = new THREE.IcosahedronGeometry(0.5, 1);
+  const icosahedron = new THREE.Mesh(geometry03, material01);
+  scene.add(icosahedron);
+
   function render(time) {
     const newTime = time * 0.001;
 
     cube.rotation.y = newTime;
     cube.rotation.x = newTime;
+
+    icosahedron.rotation.x = newTime;
 
     renderer.render(scene, camera);
 
