@@ -17,7 +17,11 @@ if (WebGL.isWebGLAvailable()) {
 
   // 렌더러
   const $canvas = document.querySelector('#canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas: $canvas });
+  const renderer = new THREE.WebGLRenderer({
+    canvas: $canvas,
+    alpha: true,
+    antialias: true,
+  });
   renderer.setSize(window.innerWidth, window.innerHeight);
   // document.body.appendChild(renderer.domElement);
 
