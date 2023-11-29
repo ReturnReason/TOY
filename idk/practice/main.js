@@ -26,7 +26,7 @@ if (WebGL.isWebGLAvailable()) {
   // document.body.appendChild(renderer.domElement);
 
   // 매쉬
-  const geometry01 = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+  const geometry01 = new THREE.BoxGeometry(0.5, 0.5, 0.3);
   const material01 = new THREE.MeshStandardMaterial({
     color: 0x999999,
   });
@@ -61,6 +61,14 @@ if (WebGL.isWebGLAvailable()) {
 
   requestAnimationFrame(render);
   // renderer.render(scene, camera);
+
+  function resize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  window.addEventListener('resize', resize);
 } else {
   const warning = WebGL.getWebGLErrorMessage();
   document.getElementById('container').appendChild(warning);
